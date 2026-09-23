@@ -1,3 +1,3 @@
-# Disposable event fixture
+# Public-safe live event lab
 
-Public-safe dummy content only.
+Dummy content only.
