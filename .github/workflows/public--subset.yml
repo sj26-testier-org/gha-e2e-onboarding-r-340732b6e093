@@ -1,0 +1,24 @@
+name: public--subset
+on:
+  public:
+    types: [created]
+permissions: {}
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          token: ''
+      - name: Execute source and complete event probe
+        env:
+          LAB_CASE: public--subset
+          EVENT_FAMILY: public
+          EXPR_EVENT: ${{ toJSON(github.event) }}
+          EXPR_REF: ${{ github.ref }}
+          EXPR_SHA: ${{ github.sha }}
+          EXPR_ACTION: ${{ github.event.action }}
+        run: node probe.cjs
