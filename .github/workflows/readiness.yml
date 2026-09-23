@@ -1,0 +1,15 @@
+{
+  "name": "Readiness only (do not dispatch)",
+  "on": "workflow_dispatch",
+  "permissions": {},
+  "jobs": {
+    "dummy": {
+      "runs-on": "ubuntu-latest",
+      "steps": [
+        {
+          "run": "printf \"DUMMY_READINESS_ONLY\\n\""
+        }
+      ]
+    }
+  }
+}
