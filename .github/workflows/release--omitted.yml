@@ -1,7 +1,6 @@
-name: label--types-null
+name: release--omitted
 on:
-  label:
-    types: null
+  release: {}
 permissions: {}
 jobs:
   probe:
@@ -15,8 +14,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: label--types-null
-          EVENT_FAMILY: label
+          LAB_CASE: release--omitted
+          EVENT_FAMILY: release
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

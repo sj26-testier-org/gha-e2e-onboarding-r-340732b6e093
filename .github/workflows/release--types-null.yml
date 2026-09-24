@@ -1,6 +1,7 @@
-name: issue_comment--omitted
+name: release--types-null
 on:
-  issue_comment: {}
+  release:
+    types: null
 permissions: {}
 jobs:
   probe:
@@ -14,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: issue_comment--omitted
-          EVENT_FAMILY: issue_comment
+          LAB_CASE: release--types-null
+          EVENT_FAMILY: release
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

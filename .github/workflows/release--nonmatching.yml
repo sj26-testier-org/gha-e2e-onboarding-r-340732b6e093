@@ -1,6 +1,7 @@
-name: label--omitted
+name: release--nonmatching
 on:
-  label: {}
+  release:
+    types: ["unpublished"]
 permissions: {}
 jobs:
   probe:
@@ -14,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: label--omitted
-          EVENT_FAMILY: label
+          LAB_CASE: release--nonmatching
+          EVENT_FAMILY: release
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

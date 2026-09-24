@@ -1,7 +1,7 @@
-name: label--matching
+name: release--matching
 on:
-  label:
-    types: ["created"]
+  release:
+    types: ["published"]
 permissions: {}
 jobs:
   probe:
@@ -15,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: label--matching
-          EVENT_FAMILY: label
+          LAB_CASE: release--matching
+          EVENT_FAMILY: release
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}
