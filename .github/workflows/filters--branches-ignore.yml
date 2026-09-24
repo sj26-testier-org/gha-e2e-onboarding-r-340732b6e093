@@ -1,7 +1,8 @@
-name: watch--subset
+name: filters--branches-ignore
 on:
-  watch:
-    types: [started]
+  discussion_comment:
+    types: [created]
+    branches-ignore: ['**']
 permissions: {}
 jobs:
   probe:
@@ -13,10 +14,10 @@ jobs:
         with:
           node-version: '22'
           token: ''
-      - name: Execute source and complete event probe
+      - name: Execute complete event probe
         env:
-          LAB_CASE: watch--subset
-          EVENT_FAMILY: watch
+          LAB_CASE: filters--branches-ignore
+          EVENT_FAMILY: discussion_comment
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

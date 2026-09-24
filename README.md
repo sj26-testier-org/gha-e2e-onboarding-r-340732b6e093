@@ -1,3 +1,1 @@
-# Public-safe live event lab
-
-Dummy content only.
+# Public-safe filter compatibility fixture

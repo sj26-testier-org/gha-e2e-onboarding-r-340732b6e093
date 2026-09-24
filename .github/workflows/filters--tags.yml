@@ -1,7 +1,8 @@
-name: page_build--subset
+name: filters--tags
 on:
-  page_build:
+  discussion_comment:
     types: [created]
+    tags: ['never-this-tag']
 permissions: {}
 jobs:
   probe:
@@ -13,10 +14,10 @@ jobs:
         with:
           node-version: '22'
           token: ''
-      - name: Execute source and complete event probe
+      - name: Execute complete event probe
         env:
-          LAB_CASE: page_build--subset
-          EVENT_FAMILY: page_build
+          LAB_CASE: filters--tags
+          EVENT_FAMILY: discussion_comment
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

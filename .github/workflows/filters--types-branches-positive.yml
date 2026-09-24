@@ -1,7 +1,8 @@
-name: discussion--subset
+name: filters--types-branches-positive
 on:
-  discussion:
-    types: [created, edited]
+  discussion_comment:
+    types: [created]
+    branches: [never-this-branch]
 permissions: {}
 jobs:
   probe:
@@ -13,10 +14,10 @@ jobs:
         with:
           node-version: '22'
           token: ''
-      - name: Execute source and complete event probe
+      - name: Execute complete event probe
         env:
-          LAB_CASE: discussion--subset
-          EVENT_FAMILY: discussion
+          LAB_CASE: filters--types-branches-positive
+          EVENT_FAMILY: discussion_comment
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

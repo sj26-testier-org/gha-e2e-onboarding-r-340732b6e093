@@ -1,7 +1,8 @@
-name: public--subset
+name: filters--types-branches-negative
 on:
-  public:
-    types: [created]
+  discussion_comment:
+    types: [edited]
+    branches: [filter-compatibility]
 permissions: {}
 jobs:
   probe:
@@ -13,10 +14,10 @@ jobs:
         with:
           node-version: '22'
           token: ''
-      - name: Execute source and complete event probe
+      - name: Execute complete event probe
         env:
-          LAB_CASE: public--subset
-          EVENT_FAMILY: public
+          LAB_CASE: filters--types-branches-negative
+          EVENT_FAMILY: discussion_comment
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}
