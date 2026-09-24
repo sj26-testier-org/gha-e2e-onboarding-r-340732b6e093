@@ -1,8 +1,7 @@
-name: watch--paths
+name: pull_request_review_comment--matching
 on:
-  watch:
-    types: ["started"]
-    paths: ["never/matching/**"]
+  pull_request_review_comment:
+    types: ["created"]
 permissions: {}
 jobs:
   probe:
@@ -16,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: watch--paths
-          EVENT_FAMILY: watch
+          LAB_CASE: pull_request_review_comment--matching
+          EVENT_FAMILY: pull_request_review_comment
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

@@ -1,8 +1,7 @@
-name: discussion--tags
+name: pull_request_review_comment--nonmatching
 on:
-  discussion:
-    types: ["edited"]
-    tags: ["never-this-tag"]
+  pull_request_review_comment:
+    types: ["deleted"]
 permissions: {}
 jobs:
   probe:
@@ -16,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: discussion--tags
-          EVENT_FAMILY: discussion
+          LAB_CASE: pull_request_review_comment--nonmatching
+          EVENT_FAMILY: pull_request_review_comment
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

@@ -1,8 +1,7 @@
-name: milestone--tags-ignore
+name: pull_request--types-null
 on:
-  milestone:
-    types: ["created"]
-    tags-ignore: ["**"]
+  pull_request:
+    types: null
 permissions: {}
 jobs:
   probe:
@@ -16,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: milestone--tags-ignore
-          EVENT_FAMILY: milestone
+          LAB_CASE: pull_request--types-null
+          EVENT_FAMILY: pull_request
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

@@ -1,8 +1,6 @@
-name: watch--tags-ignore
+name: pull_request_review--omitted
 on:
-  watch:
-    types: ["started"]
-    tags-ignore: ["**"]
+  pull_request_review: {}
 permissions: {}
 jobs:
   probe:
@@ -16,8 +14,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: watch--tags-ignore
-          EVENT_FAMILY: watch
+          LAB_CASE: pull_request_review--omitted
+          EVENT_FAMILY: pull_request_review
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

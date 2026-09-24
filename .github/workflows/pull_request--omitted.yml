@@ -1,7 +1,6 @@
-name: page_build--paths
+name: pull_request--omitted
 on:
-  page_build:
-    paths: ["never/matching/**"]
+  pull_request: {}
 permissions: {}
 jobs:
   probe:
@@ -15,8 +14,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: page_build--paths
-          EVENT_FAMILY: page_build
+          LAB_CASE: pull_request--omitted
+          EVENT_FAMILY: pull_request
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

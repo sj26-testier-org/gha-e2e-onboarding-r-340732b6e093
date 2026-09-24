@@ -1,7 +1,7 @@
-name: page_build--tags
+name: pull_request--matching
 on:
-  page_build:
-    tags: ["never-this-tag"]
+  pull_request:
+    types: ["opened", "edited"]
 permissions: {}
 jobs:
   probe:
@@ -15,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: page_build--tags
-          EVENT_FAMILY: page_build
+          LAB_CASE: pull_request--matching
+          EVENT_FAMILY: pull_request
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

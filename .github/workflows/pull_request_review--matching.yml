@@ -1,7 +1,7 @@
-name: gollum--tags
+name: pull_request_review--matching
 on:
-  gollum:
-    tags: ["never-this-tag"]
+  pull_request_review:
+    types: ["submitted"]
 permissions: {}
 jobs:
   probe:
@@ -15,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: gollum--tags
-          EVENT_FAMILY: gollum
+          LAB_CASE: pull_request_review--matching
+          EVENT_FAMILY: pull_request_review
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

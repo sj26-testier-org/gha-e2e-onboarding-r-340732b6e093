@@ -1,7 +1,7 @@
-name: gollum--paths-ignore
+name: pull_request_review_comment--types-empty
 on:
-  gollum:
-    paths-ignore: ["**"]
+  pull_request_review_comment:
+    types: []
 permissions: {}
 jobs:
   probe:
@@ -15,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: gollum--paths-ignore
-          EVENT_FAMILY: gollum
+          LAB_CASE: pull_request_review_comment--types-empty
+          EVENT_FAMILY: pull_request_review_comment
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

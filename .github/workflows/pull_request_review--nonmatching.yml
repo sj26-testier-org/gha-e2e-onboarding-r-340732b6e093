@@ -1,8 +1,7 @@
-name: discussion--paths-ignore
+name: pull_request_review--nonmatching
 on:
-  discussion:
-    types: ["edited"]
-    paths-ignore: ["**"]
+  pull_request_review:
+    types: ["dismissed"]
 permissions: {}
 jobs:
   probe:
@@ -16,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: discussion--paths-ignore
-          EVENT_FAMILY: discussion
+          LAB_CASE: pull_request_review--nonmatching
+          EVENT_FAMILY: pull_request_review
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

@@ -1,7 +1,7 @@
-name: gollum--branches-ignore
+name: pull_request--types-empty
 on:
-  gollum:
-    branches-ignore: ["**"]
+  pull_request:
+    types: []
 permissions: {}
 jobs:
   probe:
@@ -15,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: gollum--branches-ignore
-          EVENT_FAMILY: gollum
+          LAB_CASE: pull_request--types-empty
+          EVENT_FAMILY: pull_request
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

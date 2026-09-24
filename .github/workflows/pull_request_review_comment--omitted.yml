@@ -1,8 +1,6 @@
-name: milestone--tags
+name: pull_request_review_comment--omitted
 on:
-  milestone:
-    types: ["created"]
-    tags: ["never-this-tag"]
+  pull_request_review_comment: {}
 permissions: {}
 jobs:
   probe:
@@ -16,8 +14,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: milestone--tags
-          EVENT_FAMILY: milestone
+          LAB_CASE: pull_request_review_comment--omitted
+          EVENT_FAMILY: pull_request_review_comment
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

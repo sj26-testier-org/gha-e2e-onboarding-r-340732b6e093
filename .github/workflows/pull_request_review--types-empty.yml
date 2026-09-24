@@ -1,8 +1,7 @@
-name: watch--paths-ignore
+name: pull_request_review--types-empty
 on:
-  watch:
-    types: ["started"]
-    paths-ignore: ["**"]
+  pull_request_review:
+    types: []
 permissions: {}
 jobs:
   probe:
@@ -16,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: watch--paths-ignore
-          EVENT_FAMILY: watch
+          LAB_CASE: pull_request_review--types-empty
+          EVENT_FAMILY: pull_request_review
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}
