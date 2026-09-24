@@ -1,6 +1,6 @@
-name: issues--types-null
+name: label--types-null
 on:
-  issues:
+  label:
     types: null
 permissions: {}
 jobs:
@@ -15,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: issues--types-null
-          EVENT_FAMILY: issues
+          LAB_CASE: label--types-null
+          EVENT_FAMILY: label
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

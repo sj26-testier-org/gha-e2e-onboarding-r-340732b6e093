@@ -1,1 +1,1 @@
-# Public-safe older event null type control
+# Public-safe bounded compatibility fixture

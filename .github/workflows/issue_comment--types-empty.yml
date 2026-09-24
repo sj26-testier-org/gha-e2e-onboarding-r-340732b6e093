@@ -1,0 +1,24 @@
+name: issue_comment--types-empty
+on:
+  issue_comment:
+    types: []
+permissions: {}
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          token: ''
+      - name: Execute complete event probe
+        env:
+          LAB_CASE: issue_comment--types-empty
+          EVENT_FAMILY: issue_comment
+          EXPR_EVENT: ${{ toJSON(github.event) }}
+          EXPR_REF: ${{ github.ref }}
+          EXPR_SHA: ${{ github.sha }}
+          EXPR_ACTION: ${{ github.event.action }}
+        run: node probe.cjs
