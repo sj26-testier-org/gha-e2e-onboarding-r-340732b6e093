@@ -1,7 +1,8 @@
-name: release--types-null
+name: discussion--paths-ignore
 on:
-  release:
-    types: null
+  discussion:
+    types: ["edited"]
+    paths-ignore: ["**"]
 permissions: {}
 jobs:
   probe:
@@ -15,8 +16,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: release--types-null
-          EVENT_FAMILY: release
+          LAB_CASE: discussion--paths-ignore
+          EVENT_FAMILY: discussion
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

@@ -1,7 +1,7 @@
-name: release--nonmatching
+name: gollum--branches-ignore
 on:
-  release:
-    types: ["unpublished"]
+  gollum:
+    branches-ignore: ["**"]
 permissions: {}
 jobs:
   probe:
@@ -15,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: release--nonmatching
-          EVENT_FAMILY: release
+          LAB_CASE: gollum--branches-ignore
+          EVENT_FAMILY: gollum
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

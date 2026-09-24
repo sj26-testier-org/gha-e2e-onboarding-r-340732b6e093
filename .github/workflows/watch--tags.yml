@@ -1,7 +1,8 @@
-name: release--matching
+name: watch--tags
 on:
-  release:
-    types: ["published"]
+  watch:
+    types: ["started"]
+    tags: ["never-this-tag"]
 permissions: {}
 jobs:
   probe:
@@ -15,8 +16,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: release--matching
-          EVENT_FAMILY: release
+          LAB_CASE: watch--tags
+          EVENT_FAMILY: watch
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

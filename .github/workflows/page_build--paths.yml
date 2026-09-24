@@ -1,6 +1,7 @@
-name: release--omitted
+name: page_build--paths
 on:
-  release: {}
+  page_build:
+    paths: ["never/matching/**"]
 permissions: {}
 jobs:
   probe:
@@ -14,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: release--omitted
-          EVENT_FAMILY: release
+          LAB_CASE: page_build--paths
+          EVENT_FAMILY: page_build
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}

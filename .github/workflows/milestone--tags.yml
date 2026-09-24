@@ -1,7 +1,8 @@
-name: release--types-empty
+name: milestone--tags
 on:
-  release:
-    types: []
+  milestone:
+    types: ["created"]
+    tags: ["never-this-tag"]
 permissions: {}
 jobs:
   probe:
@@ -15,8 +16,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: release--types-empty
-          EVENT_FAMILY: release
+          LAB_CASE: milestone--tags
+          EVENT_FAMILY: milestone
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}
