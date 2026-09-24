@@ -1,8 +1,7 @@
-name: filters--tags
+name: issues--types-null
 on:
-  discussion_comment:
-    types: [created]
-    tags: ['never-this-tag']
+  issues:
+    types: null
 permissions: {}
 jobs:
   probe:
@@ -16,8 +15,8 @@ jobs:
           token: ''
       - name: Execute complete event probe
         env:
-          LAB_CASE: filters--tags
-          EVENT_FAMILY: discussion_comment
+          LAB_CASE: issues--types-null
+          EVENT_FAMILY: issues
           EXPR_EVENT: ${{ toJSON(github.event) }}
           EXPR_REF: ${{ github.ref }}
           EXPR_SHA: ${{ github.sha }}
