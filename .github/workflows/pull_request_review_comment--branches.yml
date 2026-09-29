@@ -1,7 +1,10 @@
 {
-  "name": "deployment_status--branches",
+  "name": "pull_request_review_comment--branches",
   "on": {
-    "deployment_status": {
+    "pull_request_review_comment": {
+      "types": [
+        "created"
+      ],
       "branches": [
         "__lab_never_branch__"
       ]
@@ -10,7 +13,7 @@
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "deployment_status--branches",
+      "name": "pull_request_review_comment--branches",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "deployment_status--branches",
+            "LAB_CASE": "pull_request_review_comment--branches",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

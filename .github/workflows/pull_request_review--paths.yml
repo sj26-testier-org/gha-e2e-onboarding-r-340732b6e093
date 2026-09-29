@@ -1,12 +1,19 @@
 {
-  "name": "deployment--positive",
+  "name": "pull_request_review--paths",
   "on": {
-    "deployment": {}
+    "pull_request_review": {
+      "types": [
+        "submitted"
+      ],
+      "paths": [
+        "__lab_never_path__/**"
+      ]
+    }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "deployment--positive",
+      "name": "pull_request_review--paths",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -23,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "deployment--positive",
+            "LAB_CASE": "pull_request_review--paths",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

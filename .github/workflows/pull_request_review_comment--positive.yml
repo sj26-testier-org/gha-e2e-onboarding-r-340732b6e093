@@ -1,16 +1,16 @@
 {
-  "name": "deployment--tags-ignore",
+  "name": "pull_request_review_comment--positive",
   "on": {
-    "deployment": {
-      "tags-ignore": [
-        "**"
+    "pull_request_review_comment": {
+      "types": [
+        "created"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "deployment--tags-ignore",
+      "name": "pull_request_review_comment--positive",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "deployment--tags-ignore",
+            "LAB_CASE": "pull_request_review_comment--positive",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

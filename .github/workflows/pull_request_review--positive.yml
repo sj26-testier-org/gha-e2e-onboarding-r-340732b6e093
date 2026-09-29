@@ -1,16 +1,16 @@
 {
-  "name": "deployment_status--branches-ignore",
+  "name": "pull_request_review--positive",
   "on": {
-    "deployment_status": {
-      "branches-ignore": [
-        "**"
+    "pull_request_review": {
+      "types": [
+        "submitted"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "deployment_status--branches-ignore",
+      "name": "pull_request_review--positive",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "deployment_status--branches-ignore",
+            "LAB_CASE": "pull_request_review--positive",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

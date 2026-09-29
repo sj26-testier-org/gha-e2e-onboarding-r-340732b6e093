@@ -1,16 +1,19 @@
 {
-  "name": "deployment--paths",
+  "name": "pull_request_review_comment--tags",
   "on": {
-    "deployment": {
-      "paths": [
-        "__lab_never_path__/**"
+    "pull_request_review_comment": {
+      "types": [
+        "created"
+      ],
+      "tags": [
+        "__lab_never_tag__"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "deployment--paths",
+      "name": "pull_request_review_comment--tags",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "deployment--paths",
+            "LAB_CASE": "pull_request_review_comment--tags",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

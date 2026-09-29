@@ -1,16 +1,19 @@
 {
-  "name": "deployment_status--paths",
+  "name": "pull_request_review_comment--branches-ignore",
   "on": {
-    "deployment_status": {
-      "paths": [
-        "__lab_never_path__/**"
+    "pull_request_review_comment": {
+      "types": [
+        "created"
+      ],
+      "branches-ignore": [
+        "**"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "deployment_status--paths",
+      "name": "pull_request_review_comment--branches-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "deployment_status--paths",
+            "LAB_CASE": "pull_request_review_comment--branches-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

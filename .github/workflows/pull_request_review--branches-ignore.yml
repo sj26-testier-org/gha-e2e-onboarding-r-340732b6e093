@@ -1,16 +1,19 @@
 {
-  "name": "deployment--tags",
+  "name": "pull_request_review--branches-ignore",
   "on": {
-    "deployment": {
-      "tags": [
-        "__lab_never_tag__"
+    "pull_request_review": {
+      "types": [
+        "submitted"
+      ],
+      "branches-ignore": [
+        "**"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "deployment--tags",
+      "name": "pull_request_review--branches-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "deployment--tags",
+            "LAB_CASE": "pull_request_review--branches-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",
