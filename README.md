@@ -1,1 +1,3 @@
-# Public-safe literal types native compatibility lab
+# Disposable event fixture
+
+Public-safe dummy content only.
