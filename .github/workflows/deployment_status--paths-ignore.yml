@@ -1,12 +1,16 @@
 {
-  "name": "delete--positive",
+  "name": "deployment_status--paths-ignore",
   "on": {
-    "delete": {}
+    "deployment_status": {
+      "paths-ignore": [
+        "**"
+      ]
+    }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "delete--positive",
+      "name": "deployment_status--paths-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -23,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "delete--positive",
+            "LAB_CASE": "deployment_status--paths-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

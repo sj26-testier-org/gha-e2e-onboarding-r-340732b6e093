@@ -1,16 +1,16 @@
 {
-  "name": "create--branches",
+  "name": "deployment--paths-ignore",
   "on": {
-    "create": {
-      "branches": [
-        "__lab_never_branch__"
+    "deployment": {
+      "paths-ignore": [
+        "**"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "create--branches",
+      "name": "deployment--paths-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "create--branches",
+            "LAB_CASE": "deployment--paths-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

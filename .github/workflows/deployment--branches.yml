@@ -1,16 +1,16 @@
 {
-  "name": "delete--paths",
+  "name": "deployment--branches",
   "on": {
-    "delete": {
-      "paths": [
-        "__lab_never_path__/**"
+    "deployment": {
+      "branches": [
+        "__lab_never_branch__"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "delete--paths",
+      "name": "deployment--branches",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "delete--paths",
+            "LAB_CASE": "deployment--branches",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

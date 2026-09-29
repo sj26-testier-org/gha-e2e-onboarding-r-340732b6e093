@@ -1,16 +1,16 @@
 {
-  "name": "delete--tags",
+  "name": "deployment_status--branches",
   "on": {
-    "delete": {
-      "tags": [
-        "__lab_never_tag__"
+    "deployment_status": {
+      "branches": [
+        "__lab_never_branch__"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "delete--tags",
+      "name": "deployment_status--branches",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "delete--tags",
+            "LAB_CASE": "deployment_status--branches",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

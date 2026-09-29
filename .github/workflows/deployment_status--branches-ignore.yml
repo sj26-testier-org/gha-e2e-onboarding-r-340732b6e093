@@ -1,16 +1,16 @@
 {
-  "name": "create--tags",
+  "name": "deployment_status--branches-ignore",
   "on": {
-    "create": {
-      "tags": [
-        "__lab_never_tag__"
+    "deployment_status": {
+      "branches-ignore": [
+        "**"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "create--tags",
+      "name": "deployment_status--branches-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "create--tags",
+            "LAB_CASE": "deployment_status--branches-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

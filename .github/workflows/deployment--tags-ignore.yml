@@ -1,8 +1,8 @@
 {
-  "name": "create--branches-ignore",
+  "name": "deployment--tags-ignore",
   "on": {
-    "create": {
-      "branches-ignore": [
+    "deployment": {
+      "tags-ignore": [
         "**"
       ]
     }
@@ -10,7 +10,7 @@
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "create--branches-ignore",
+      "name": "deployment--tags-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "create--branches-ignore",
+            "LAB_CASE": "deployment--tags-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

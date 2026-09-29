@@ -1,8 +1,8 @@
 {
-  "name": "delete--branches-ignore",
+  "name": "deployment_status--tags-ignore",
   "on": {
-    "delete": {
-      "branches-ignore": [
+    "deployment_status": {
+      "tags-ignore": [
         "**"
       ]
     }
@@ -10,7 +10,7 @@
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "delete--branches-ignore",
+      "name": "deployment_status--tags-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "delete--branches-ignore",
+            "LAB_CASE": "deployment_status--tags-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

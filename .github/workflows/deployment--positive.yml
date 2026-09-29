@@ -1,16 +1,12 @@
 {
-  "name": "create--tags-ignore",
+  "name": "deployment--positive",
   "on": {
-    "create": {
-      "tags-ignore": [
-        "**"
-      ]
-    }
+    "deployment": {}
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "create--tags-ignore",
+      "name": "deployment--positive",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +23,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "create--tags-ignore",
+            "LAB_CASE": "deployment--positive",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

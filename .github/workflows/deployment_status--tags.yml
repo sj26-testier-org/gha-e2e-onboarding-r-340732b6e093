@@ -1,16 +1,16 @@
 {
-  "name": "create--paths",
+  "name": "deployment_status--tags",
   "on": {
-    "create": {
-      "paths": [
-        "__lab_never_path__/**"
+    "deployment_status": {
+      "tags": [
+        "__lab_never_tag__"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "create--paths",
+      "name": "deployment_status--tags",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "create--paths",
+            "LAB_CASE": "deployment_status--tags",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

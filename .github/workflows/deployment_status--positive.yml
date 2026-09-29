@@ -1,16 +1,12 @@
 {
-  "name": "delete--branches",
+  "name": "deployment_status--positive",
   "on": {
-    "delete": {
-      "branches": [
-        "__lab_never_branch__"
-      ]
-    }
+    "deployment_status": {}
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "delete--branches",
+      "name": "deployment_status--positive",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +23,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "delete--branches",
+            "LAB_CASE": "deployment_status--positive",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",
