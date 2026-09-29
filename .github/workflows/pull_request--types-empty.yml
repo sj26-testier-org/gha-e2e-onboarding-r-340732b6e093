@@ -1,8 +1,8 @@
 {
-  "name": "issues--types-null",
+  "name": "pull_request--types-empty",
   "on": {
-    "issues": {
-      "types": null
+    "pull_request": {
+      "types": []
     }
   },
   "permissions": {},
@@ -24,7 +24,7 @@
         {
           "name": "Original event and checkout evidence",
           "env": {
-            "LAB_CASE": "issues--types-null",
+            "LAB_CASE": "pull_request--types-empty",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

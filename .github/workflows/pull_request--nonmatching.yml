@@ -1,7 +1,7 @@
 {
-  "name": "issues--matching",
+  "name": "pull_request--nonmatching",
   "on": {
-    "issues": {
+    "pull_request": {
       "types": [
         "opened"
       ]
@@ -26,7 +26,7 @@
         {
           "name": "Original event and checkout evidence",
           "env": {
-            "LAB_CASE": "issues--matching",
+            "LAB_CASE": "pull_request--nonmatching",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

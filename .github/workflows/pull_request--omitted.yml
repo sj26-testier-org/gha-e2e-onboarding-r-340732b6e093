@@ -1,7 +1,7 @@
 {
-  "name": "issues--omitted",
+  "name": "pull_request--omitted",
   "on": {
-    "issues": {}
+    "pull_request": {}
   },
   "permissions": {},
   "jobs": {
@@ -22,7 +22,7 @@
         {
           "name": "Original event and checkout evidence",
           "env": {
-            "LAB_CASE": "issues--omitted",
+            "LAB_CASE": "pull_request--omitted",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",
