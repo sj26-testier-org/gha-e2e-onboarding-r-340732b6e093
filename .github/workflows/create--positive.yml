@@ -1,19 +1,12 @@
 {
-  "name": "release--branches-ignore",
+  "name": "create--positive",
   "on": {
-    "release": {
-      "types": [
-        "published"
-      ],
-      "branches-ignore": [
-        "**"
-      ]
-    }
+    "create": {}
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "release--branches-ignore",
+      "name": "create--positive",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +23,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "release--branches-ignore",
+            "LAB_CASE": "create--positive",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

@@ -1,16 +1,16 @@
 {
-  "name": "release--positive",
+  "name": "delete--branches-ignore",
   "on": {
-    "release": {
-      "types": [
-        "published"
+    "delete": {
+      "branches-ignore": [
+        "**"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "release--positive",
+      "name": "delete--branches-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -27,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "release--positive",
+            "LAB_CASE": "delete--branches-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

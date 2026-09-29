@@ -1,19 +1,16 @@
 {
-  "name": "release--paths",
+  "name": "create--tags",
   "on": {
-    "release": {
-      "types": [
-        "published"
-      ],
-      "paths": [
-        "__lab_never_path__/**"
+    "create": {
+      "tags": [
+        "__lab_never_tag__"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "release--paths",
+      "name": "create--tags",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "release--paths",
+            "LAB_CASE": "create--tags",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

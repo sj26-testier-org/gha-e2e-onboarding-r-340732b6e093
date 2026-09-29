@@ -1,19 +1,12 @@
 {
-  "name": "release--tags",
+  "name": "delete--positive",
   "on": {
-    "release": {
-      "types": [
-        "published"
-      ],
-      "tags": [
-        "__lab_never_tag__"
-      ]
-    }
+    "delete": {}
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "release--tags",
+      "name": "delete--positive",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +23,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "release--tags",
+            "LAB_CASE": "delete--positive",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

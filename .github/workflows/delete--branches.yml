@@ -1,10 +1,7 @@
 {
-  "name": "release--branches",
+  "name": "delete--branches",
   "on": {
-    "release": {
-      "types": [
-        "published"
-      ],
+    "delete": {
       "branches": [
         "__lab_never_branch__"
       ]
@@ -13,7 +10,7 @@
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "release--branches",
+      "name": "delete--branches",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "release--branches",
+            "LAB_CASE": "delete--branches",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",
