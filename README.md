@@ -1,1 +1,3 @@
-# Public-safe remaining-filter laboratory
+# Disposable event fixture
+
+Public-safe dummy content only.
