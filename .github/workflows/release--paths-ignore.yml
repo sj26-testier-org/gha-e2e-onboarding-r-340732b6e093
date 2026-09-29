@@ -1,19 +1,19 @@
 {
-  "name": "label--paths",
+  "name": "release--paths-ignore",
   "on": {
-    "label": {
+    "release": {
       "types": [
-        "created"
+        "published"
       ],
-      "paths": [
-        "__lab_never_path__/**"
+      "paths-ignore": [
+        "**"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "label--paths",
+      "name": "release--paths-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "label--paths",
+            "LAB_CASE": "release--paths-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

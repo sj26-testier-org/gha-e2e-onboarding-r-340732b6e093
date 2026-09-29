@@ -1,19 +1,19 @@
 {
-  "name": "label--branches",
+  "name": "release--tags-ignore",
   "on": {
-    "label": {
+    "release": {
       "types": [
-        "created"
+        "published"
       ],
-      "branches": [
-        "__lab_never_branch__"
+      "tags-ignore": [
+        "**"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "label--branches",
+      "name": "release--tags-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "label--branches",
+            "LAB_CASE": "release--tags-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

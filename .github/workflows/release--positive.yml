@@ -1,19 +1,16 @@
 {
-  "name": "issue_comment--tags-ignore",
+  "name": "release--positive",
   "on": {
-    "issue_comment": {
+    "release": {
       "types": [
-        "created"
-      ],
-      "tags-ignore": [
-        "**"
+        "published"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "issue_comment--tags-ignore",
+      "name": "release--positive",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +27,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "issue_comment--tags-ignore",
+            "LAB_CASE": "release--positive",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

@@ -1,19 +1,19 @@
 {
-  "name": "issue_comment--branches",
+  "name": "release--branches-ignore",
   "on": {
-    "issue_comment": {
+    "release": {
       "types": [
-        "created"
+        "published"
       ],
-      "branches": [
-        "__lab_never_branch__"
+      "branches-ignore": [
+        "**"
       ]
     }
   },
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "issue_comment--branches",
+      "name": "release--branches-ignore",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "issue_comment--branches",
+            "LAB_CASE": "release--branches-ignore",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",

@@ -1,9 +1,9 @@
 {
-  "name": "issues--tags",
+  "name": "release--tags",
   "on": {
-    "issues": {
+    "release": {
       "types": [
-        "opened"
+        "published"
       ],
       "tags": [
         "__lab_never_tag__"
@@ -13,7 +13,7 @@
   "permissions": {},
   "jobs": {
     "probe": {
-      "name": "issues--tags",
+      "name": "release--tags",
       "runs-on": "ubuntu-latest",
       "timeout-minutes": 5,
       "steps": [
@@ -30,7 +30,7 @@
         {
           "name": "Original event and source proof",
           "env": {
-            "LAB_CASE": "issues--tags",
+            "LAB_CASE": "release--tags",
             "EVENT_FAMILY": "${{ github.event_name }}",
             "EXPR_EVENT": "${{ toJSON(github.event) }}",
             "EXPR_REF": "${{ github.ref }}",
